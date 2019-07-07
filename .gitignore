@@ -1,2 +1,2 @@
- ~$*.SLDPRT
- ~$*.SLDASM
+ **/~$*.SLDPRT
+ **/~$*.SLDASM

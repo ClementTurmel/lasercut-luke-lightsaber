@@ -22,4 +22,4 @@
   </span>
 </div>
 
-<script src="https://github.com/Clemaul/lasercut-luke-lightsater/blob/master/stl/AssemblageV3.STL"></script>
+<script src="https://embed.github.com/view/3d/Clemaul/lasercut-luke-lightsater/blob/master/stl/AssemblageV3.STL"></script>

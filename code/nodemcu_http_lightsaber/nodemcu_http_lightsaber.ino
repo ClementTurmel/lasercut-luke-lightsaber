@@ -22,7 +22,6 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, LED_PIN, NEO_GRB + NEO_K
 ESP8266WebServer server(80);
 
 void handleRoot(){
-  //String value = "random key is : " + randomKey;
   server.send(200, "text/html", "<script>   var colorWell;   var defaultColor = '#0000ff';    window.addEventListener('load', startup, false);    function startup() {     colorWell = document.querySelector('#colorWell');     colorWell.value = defaultColor;     colorWell.addEventListener('change', updateAll, false);  colorWell.addEventListener('input', updateAll, false);     colorWell.select();   }    function updateAll(event) {   var hexColor = event.target.value;  var r = hexToRgb(hexColor).r;   var g = hexToRgb(hexColor).g;   var b = hexToRgb(hexColor).b;        const Http = new XMLHttpRequest();   var  url = 'http://192.168.1.13';   url +='/changeColor' +'?r='+ r +'&g='+ g +'&b='+ b;   console.log(url);     Http.open('GET', url);     Http.send();   }      function hexToRgb(hex) {   var result = /^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i.exec(hex);   return result ? {     r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16)   } : null; }  </script> <label for='colorWell'>Lightsaber's color :</label> <input type='color' value='#ff0000' id='colorWell'>");
 }
 
@@ -43,18 +42,6 @@ void changeColor(){
     pixels.setPixelColor(0, pixels.Color(red,green,blue)); 
     pixels.show(); 
 
-    handleRoot();
-}
-
-void turnRed(){ 
-    pixels.setPixelColor(0, pixels.Color(255,0,0));
-    pixels.show();
-    handleRoot();
-}
-
-void turnGreen(){
-    pixels.setPixelColor(0, pixels.Color(0,255,0));
-    pixels.show();
     handleRoot();
 }
 
@@ -83,11 +70,6 @@ void setup(void) {
   // Route
   server.on("/", handleRoot);
   server.on("/changeColor", changeColor);
-  server.on("/red",   turnRed);
-  server.on("/green", turnGreen);
-  //server.on("/blue",  bindColor(0,0,255));
-  //server.on("/off",   bindColor(0,0,0));
-  
   
   server.begin();
   Serial.println("HTTP server started");

@@ -1,0 +1,38 @@
+<script>
+  var colorWell;
+  var defaultColor = '#0000ff';
+
+  window.addEventListener('load', startup, false);
+
+  function startup() {
+    colorWell = document.querySelector('#colorWell');
+    colorWell.value = defaultColor;
+    colorWell.addEventListener('change', updateAll, false);
+	colorWell.addEventListener('input', updateAll, false);
+    colorWell.select();
+  }
+
+  function updateAll(event) {
+	var hexColor = event.target.value;
+	var r = hexToRgb(hexColor).r;
+	var g = hexToRgb(hexColor).g;
+	var b = hexToRgb(hexColor).b;
+  
+    const Http = new XMLHttpRequest();
+	var  url = 'http://192.168.1.13';
+	url +='/changeColor' +'?r='+ r +'&g='+ g +'&b='+ b;
+	console.log(url);
+    Http.open('GET', url);
+    Http.send();
+  }
+  
+  function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16)
+  } : null;
+}
+
+</script>
+<label for='colorWell'>Lightsaber's color :</label>
+<input type='color' value='#ff0000' id='colorWell'>

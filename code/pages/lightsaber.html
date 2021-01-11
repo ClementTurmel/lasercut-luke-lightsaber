@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="scripts.js"></script> 
+    </head>
+    <body>
+        <h1>
+            Crystal Color
+        </h1>
+        
+        <div id="inputs">
+            <div class="row">
+                server : <input type="text" id="server-ip">
+            </div>
+            <div class="row">
+                <input id="blue-button" class="blue button" type="button" value="Blue" onclick="changeColor(0,0,255)"/>    
+                <input id="green-button" class="green button" type="button" value="Green" onclick="changeColor(0,255,0)"/>     
+                <input id="purple-button" class="purple button" type="button" value="Purple" onclick="changeColor(255,0,255)"/>    
+            </div>
+            <div class="row">
+                <input id="red-button" class="red button" type="button" value="Red" onclick="changeColor(255,0,0)"/>      
+                <input id="yellow-button" class="yellow button" type="button" value="Yellow"/>      
+                <input id="white-button" class=" button white " type="button" value="White" onclick="changeColor(255,255,255)"/>
+            </div>
+            <div>
+                <label for="blink-speed-slider">Blink speed : </label> 
+                <span id="blink-speed-value">15</span>
+                <input 
+                    id="blink-speed-slider" 
+                    class="blink-speed-slider" 
+                    type="range" 
+                    name="blink-speed-slider"
+                    min="5" 
+                    max="100"
+                    step="1" 
+                    oninput="showBlinkValue(this.value)"
+                    onchange="updateBlinkValue(this.value)"
+                />
+            </div>
+        </div>
+        
+
+    </body>
+</html> 
+
+
+    

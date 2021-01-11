@@ -1,0 +1,44 @@
+ *{
+    font-family: Calibri;
+  }
+
+  body{
+    margin: auto;
+    max-width: 500px;
+  }
+
+  h1{
+      text-align: center;
+  }
+  
+  .button {
+    height: 120px;
+    width: 31%;
+    border: 1px;
+    border-style: solid;
+    border-color: grey;
+    cursor: pointer;
+    text-align:center;
+    /*margin: 3px 3px 0px 0px;*/
+    margin:0.5%;
+  }
+  
+  .row {
+    text-align:center;
+  }
+  
+
+  
+  
+  .blue {    background-color: #2196F3; color: white; }
+  .green {   background-color: #4CAF50; color: white; }
+  .purple {  background-color: #6f4a8e; color: white; }
+  .red {     background-color: #f44336; color: white; }
+  .yellow {  background-color: #ff9800; color: white; }
+  .white {   background-color: #f9fcfb; color: black; }
+  
+  .button:hover { filter: opacity(80%);}
+  
+  .blink-speed-slider {
+    width: 100%
+  }  
